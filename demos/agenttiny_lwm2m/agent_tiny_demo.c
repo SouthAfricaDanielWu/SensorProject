@@ -34,7 +34,6 @@
 
 #include "agent_tiny_demo.h"
 #include "E53_IA1.h"
-#include "lcd.h"
 
 #if defined WITH_AT_FRAMEWORK
 #include "at_frame/at_api.h"
@@ -296,17 +295,8 @@ void agent_tiny_entry(void)
     {
         return;
     }
-    LCD_Clear(WHITE);		   
-    POINT_COLOR = RED;	
-    LCD_ShowString(40, 10, 200, 16, 24, "IoTCluB BearPi");
-    LCD_ShowString(50, 50, 200, 16, 24, "E53_IA1_Demo");
-    LCD_ShowString(10, 100, 200, 16, 16, "NCDP_IP:");
-    LCD_ShowString(80, 100, 200, 16, 16, DEFAULT_SERVER_IP);
-    LCD_ShowString(10, 150, 200, 16, 16, "NCDP_PORT:");
     #ifdef WITH_DTLS
-    LCD_ShowString(100, 150, 200, 16, 16, "5684");
     #else
-    LCD_ShowString(100, 150, 200, 16, 16, "5683");
     #endif	
     uwRet = creat_collection_task();
     if (uwRet != LOS_OK)
